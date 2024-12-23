@@ -83,7 +83,12 @@
                     class="sidebar-header text-center py-3 d-flex justify-content-center flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 class="h2">CAFETERIA DU CHCL</h1>
                 </div>
+              
+                <form action="./ajouterPlats.php" method="post" class="contact-form">
+                    <input type="submit" class="btn btn-orange my-20" value="Ajouter">
+                </form>
                 <style>
+                    
                 .tableau {
                     padding: 100px 50px 100px 50px;
                 }
@@ -147,8 +152,13 @@
                                 <td><?php echo $value->cuisson_plat; ?></td>
                                 <td><?php echo $value->prix_plat; ?></td>
                                 <td><?php echo $value->quantite_plats; ?></td>
-                                <td><a class="text1" href="modifier.php?codeid=<?php echo $value->code_plat ?>">Modifier</a>|
-                                    <a class="text1" href="supprimer.php?codeid=<?php echo $value->code_plat ?>">Supprimer</a>
+                                <td>
+                                    <a href="modifier.php?codeid=<?php echo $value->code_plat; ?>" class="btn-small btn-small-warning" title="Modifier">
+                                        <i class="fas fa-edit"></i> Modifier
+                                    </a>
+                                    <a href="supprimer.php?codeid=<?php echo $value->code_plat; ?>" class="btn-small btn-small-danger" title="Supprimer">
+                                        <i class="fas fa-trash"></i> Supprimer
+                                    </a>
                                 </td>
                             </tr>
                         </tbody>

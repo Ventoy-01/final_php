@@ -101,4 +101,25 @@ const totalOrdersChart = new Chart(document.getElementById('totalOrdersChart'), 
 
 
 
-  
+  // Obtenir les éléments
+const openModalBtn = document.getElementById('openModalBtn');
+const closeModalBtn = document.getElementById('closeModalBtn');
+const formModal = document.getElementById('formModal');
+
+// Ouvrir le modal
+openModalBtn.addEventListener('click', () => {
+    formModal.classList.remove('d-none');
+});
+
+// Fermer le modal
+closeModalBtn.addEventListener('click', () => {
+    formModal.classList.add('d-none');
+});
+
+// Fermer le modal lorsqu'on clique en dehors du contenu
+formModal.addEventListener('click', (e) => {
+    if (e.target === formModal) {
+        formModal.classList.add('d-none');
+    }
+});
+

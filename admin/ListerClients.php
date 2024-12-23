@@ -54,7 +54,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="./ListerUsers.php">
-                                <i class="fas fa-user-tie"></i> Utilisateurs
+                                <i class="fas fa-c-tie"></i> Utilisateurs
                             </a>
                         </li>
                         <li class="nav-item">
@@ -64,9 +64,9 @@
                         </li>
 
                         <!--  -->
-                        <div class="user-connect">
+                        <div class="c-connect">
                             <li>
-                                <i class="fas fa-user-circle"></i>
+                                <i class="fas fa-c-circle"></i>
                                 <?php 
               echo $_SESSION['prenom']." ".$_SESSION['nom'];
               ?>
@@ -98,8 +98,11 @@
                     color: black
                 }
                 </style>
+                    <form action="./ajouterClients.php" method="post" class="contact-form">
+                    <input type="submit" class="btn btn-orange my-20" value="Ajouter">
+                </form>
                 <?php
-      $user = $_SESSION['prenom'];
+          $c = $_SESSION['prenom'];
           $sql = "SELECT * FROM clients where 1";
           $query = $pdo->prepare($sql);
           $query->execute();
@@ -124,7 +127,7 @@
             echo '<script type="text/javascript">alert("aucun Enregistrement ");</script>';
             ?>
                 <div class="genere">  
-                <button id="myBtn" class="btn btn-orange my-10"><i class="fa-solid fa-user-plus"></i> 
+                <button id="myBtn" class="btn btn-orange my-10"><i class="fa-solid fa-c-plus"></i> 
                 Ajouter un client</button>
           </div>
 
@@ -158,28 +161,7 @@
                     </form>
                 </div>
             </div>
-            <!-- <script>
-            // Get the modal
-
-            var modal = document.getElementById("myModal");
-            var btn = document.getElementById("myBtn");
-            var span = document.getElementsByClassName("close")[0];
-            btn.addeventListener("click", ()=>function(event){
-                event.preventDefault();
-                modal.style.display = "block";
-            }
-        )
-            span.onclick = function() {
-                // ajoutmodal.style.display = "none";
-                modal.style.display = "none";
-            }
-            window.onclick = function(event) {
-                if (event.target == modal) {
-                    modal.style.display = "none";
-                }
-            }
-            
-            </script>    -->
+         
             </div>
                             <?php
                     $sql = "SELECT * FROM clients where 1";
@@ -197,8 +179,13 @@
                                 <td><?php echo $value->sexe; ?></td>
                                 <td><?php echo $value->telephone; ?></td>
                                 <td><?php echo $value->date_save; ?></td>
-                                <td><a class="text1" href="modifier.php?codeid=<?php echo $value->id ?>">Modifier</a>|
-                                    <a class="text1" href="supprimer.php?codeid=<?php echo $value->id ?>">Supprimer</a>
+                                <td>
+                                    <a href="modifier.php?codeid=<?php echo $value->code_client; ?>" class="btn-small btn-small-warning" title="Modifier">
+                                        <i class="fas fa-edit"></i> Modifier
+                                    </a>
+                                    <a href="supprimer.php?codeid=<?php echo $value->code_client; ?>" class="btn-small btn-small-danger" title="Supprimer">
+                                        <i class="fas fa-trash"></i> Supprimer
+                                    </a>
                                 </td>
                             </tr>
                         </tbody>

@@ -1,7 +1,7 @@
 <?php 
   session_start();
   include('../Includes/config.php');
-  ?>
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -32,142 +32,81 @@
                         <p class="text-muted">Tableau de bord de l'administration</p>
                     </div>
                     <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link " href="./index.php">
-                                <i class="fas fa-home"></i> Dashboard
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./ListerPlats.php">
-                                <i class="fas fa-utensils"></i> Plats
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./ListerClients.php">
-                                <i class="fas fa-users"></i> Clients
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./ListerVentes.php">
-                                <i class="fas fa-shopping-cart"></i> Vente
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#">
-                                <i class="fas fa-user-tie"></i> Utilisateurs
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="../Includes/logout.php">
-                                <i class="fas fa-sign-out-alt"></i> Se deconnecter
-                            </a>
-                        </li>
-
-                        <!--  -->
-                        <div class="user-connect">
-                            <li>
-                                <i class="fas fa-user-circle"></i>
-                                <?php 
-              echo $_SESSION['prenom']." ".$_SESSION['nom'];
-              ?>
-                            </li>
-                        </div>
-
+                        <!-- Sidebar Links -->
+                        <li class="nav-item"><a class="nav-link" href="./index.php"><i class="fas fa-home"></i> Dashboard</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./ListerPlats.php"><i class="fas fa-utensils"></i> Plats</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./ListerClients.php"><i class="fas fa-users"></i> Clients</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./ListerVentes.php"><i class="fas fa-shopping-cart"></i> Vente</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="#"><i class="fas fa-user-tie"></i> Utilisateurs</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../Includes/logout.php"><i class="fas fa-sign-out-alt"></i> Se déconnecter</a></li>
                     </ul>
                 </div>
             </nav>
 
             <!-- Main Content -->
-            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 ">
-                <div
-                    class="sidebar-header text-center py-3 d-flex justify-content-center flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 class="h2">CAFETERIA DU CHCL</h1>
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+
+                <div class="d-flex justify-content-between align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">Liste des Utilisateurs</h1>
+                    <form action="./ajouterUsers.php" method="post">
+                        <input type="submit" class="btn btn-orange" id="openModalBtn" value="Ajouter">
+                    </form>                
                 </div>
-                <style>
-                .tableau {
-                    padding: 100px 50px 100px 50px;
-                }
 
-                td,
-                th {
-                    border: 2px solid black;
-                    padding: 10px;
-                }
-
-                .text1 {
-                    color: black
-                }
-                </style>
-                <?php
-      $user = $_SESSION['prenom'];
-          $sql = "SELECT * FROM users where 1";
-          $query = $pdo->prepare($sql);
-          $query->execute();
-          $resultat = $query->fetchAll(PDO::FETCH_OBJ);
-          if ($query->rowCount()>=1) {
-            ?>
-                <section class="tableau">
-                    <table style="border-collapse:collapse;">
-                        <tr>
-                            <th>Code</th>
-                            <th>Nom</th>
-                            <th>Prenom</th>
-                            <th>Email</th>
-                            <th>Role</th>
-                            <th>Action</th>
-                        </tr>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Code</th>
+                                <th>Nom</th>
+                                <th>Prénom</th>
+                                <th>Email</th>
+                                <th>Rôle</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
                         <tbody>
                             <?php
-          }
-          else{
-            echo '<script type="text/javascript">alert("aucun Enregistrement ");</script>';
-            ?>
-
-                            <form action="./Contact.php" method="post" class="contact-form">
-                                <input type="submit" class="btn btn-orange my-20" value="Ajouter">
-                            </form>
-
-        <?php
-          
-          }
-          ?>
-                            <?php
-                $user = $_SESSION['prenom'];
-                    $sql = "SELECT * FROM users where 1";
-                    $query = $pdo->prepare($sql);
-                    $query->execute();
-                    $resultat = $query->fetchAll(PDO::FETCH_OBJ);
-                    if ($query->rowCount()>=1) {
-                      foreach ($resultat as $value) {
-
-                ?>
+                            $sql = "SELECT * FROM users";
+                            $query = $pdo->prepare($sql);
+                            $query->execute();
+                            $resultat = $query->fetchAll(PDO::FETCH_OBJ);
+                            foreach ($resultat as $value) {
+                            ?>
                             <tr>
                                 <td><?php echo $value->code_user; ?></td>
                                 <td><?php echo $value->nom; ?></td>
                                 <td><?php echo $value->prenom; ?></td>
                                 <td><?php echo $value->email; ?></td>
                                 <td><?php echo $value->role; ?></td>
-                              
-                                <td><a class="text1" href="modifier.php?codeid=<?php echo $value->code_user ?>">Modifier</a>|
-                                    <a class="text1" href="supprimer.php?codeid=<?php echo $value->code_user ?>">Supprimer</a>
+                                <td>
+                                    <a href="modifier.php?codeid=<?php echo $value->code_user; ?>" class="btn-small btn-small-warning" title="Modifier">
+                                        <i class="fas fa-edit"></i> Modifier
+                                    </a>
+                                    <a href="supprimer.php?codeid=<?php echo $value->code_user; ?>" class="btn-small btn-small-danger" title="Supprimer">
+                                        <i class="fas fa-trash"></i> Supprimer
+                                    </a>
                                 </td>
+
+
+
                             </tr>
+                            <?php } ?>
                         </tbody>
-                        <?php }}?>
                     </table>
-
+                </div>
             </main>
-
-            <footer class="fouter">
-                <h5>Phoenix @copyright 2024</h5>
-            </footer>
         </div>
     </div>
+  
 
     <!-- Bootstrap JS Bundle -->
+    <footer class="fouter">
+            <h5>Phoenix @copyright 2024</h5>
+        </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Custom Script -->
     <script src="../js/script.js"></script>
 </body>
+
 
 </html>

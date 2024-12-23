@@ -308,3 +308,41 @@ a {
     color: #f1934f;
     margin-right: 8px;
   }
+
+  .btn-small {
+    padding: 4px 8px;       /* Réduit les marges internes */
+    font-size: 0.85rem;     /* Réduit la taille du texte */
+    line-height: 1.2;       /* Ajuste la hauteur de ligne */
+    border-radius: 4px;     /* Coins légèrement arrondis */
+    display: inline-flex;   /* Pour centrer les icônes et le texte */
+    align-items: center;    /* Aligne le contenu verticalement */
+    gap: 4px;               /* Espacement entre icône et texte */
+}
+
+.btn-small i {
+    font-size: 0.8rem;      /* Taille réduite des icônes */
+}
+
+.btn-small-warning {
+    background-color: #ffc107; /* Couleur jaune pour "warning" */
+    color: #000;
+    border: 1px solid #ffc107;
+}
+
+.btn-small-warning:hover {
+    background-color: #e0a800;
+    border-color: #e0a800;
+    color: #fff;
+}
+
+.btn-small-danger {
+    background-color: #dc3545; /* Couleur rouge pour "danger" */
+    color: #fff;
+    border: 1px solid #dc3545;
+}
+
+.btn-small-danger:hover {
+    background-color: #c82333;
+    border-color: #c82333;
+}
+

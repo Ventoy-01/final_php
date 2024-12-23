@@ -68,8 +68,8 @@
                             <li>
                                 <i class="fas fa-user-circle"></i>
                                 <?php 
-              echo $_SESSION['prenom']." ".$_SESSION['nom'];
-              ?>
+                                 echo $_SESSION['prenom']." ".$_SESSION['nom'];
+                                ?>
                             </li>
                         </div>
 
@@ -83,6 +83,9 @@
                     class="sidebar-header text-center py-3 d-flex justify-content-center flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 class="h2">CAFETERIA DU CHCL</h1>
                 </div>
+                <form action="./ajouterVentes.php" method="post" class="contact-form">
+                    <input type="submit" class="btn btn-orange my-20" value="Ajouter">
+                </form>
                 <style>
                 .tableau {
                     padding: 100px 50px 100px 50px;
@@ -121,13 +124,6 @@
           }
           else{
             echo '<script type="text/javascript">alert("aucun Enregistrement ");</script>';
-            ?>
-
-                            <form action="./Contact.php" method="post" class="contact-form">
-                                <input type="submit" class="btn btn-orange my-20" value="Ajouter">
-                            </form>
-
-                            <?php
           
           }
           ?>
@@ -147,8 +143,13 @@
                                 <td><?php echo $value->Code_plat; ?></td>
                                 <td><?php echo $value->Nonbre_plats; ?></td>
                                 <td><?php echo $value->Date_vente; ?></td>
-                                <td><a class="text1" href="modifier.php?codeid=<?php echo $value->Code_vente ?>">Modifier</a>|
-                                    <a class="text1" href="supprimer.php?codeid=<?php echo $value->Code_vente ?>">Supprimer</a>
+                                <td>
+                                    <a href="modifier.php?codeid=<?php echo $value->Code_vente; ?>" class="btn-small btn-small-warning" title="Modifier">
+                                        <i class="fas fa-edit"></i> Modifier
+                                    </a>
+                                    <a href="supprimer.php?codeid=<?php echo $value->Code_vente; ?>" class="btn-small btn-small-danger" title="Supprimer">
+                                        <i class="fas fa-trash"></i> Supprimer
+                                    </a>
                                 </td>
                             </tr>
                         </tbody>
