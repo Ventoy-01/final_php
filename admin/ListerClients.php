@@ -64,12 +64,12 @@
                         </li>
 
                         <!--  -->
-                        <div class="c-connect">
+                        <div class="user-connect">
                             <li>
-                                <i class="fas fa-c-circle"></i>
+                                <i class="fas fa-user-circle"></i>
                                 <?php 
-              echo $_SESSION['prenom']." ".$_SESSION['nom'];
-              ?>
+                                 echo $_SESSION['prenom']." ".$_SESSION['nom'];
+                                ?>
                             </li>
                         </div>
 
