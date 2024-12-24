@@ -7,6 +7,7 @@ html, body {
   height: 100%;
   display: flex;
   flex-direction: column;
+  background-color: #e9f9fd;
 }
 html body {
   font-family: "Reddit Mono", monospace;
@@ -344,5 +345,13 @@ a {
 .btn-small-danger:hover {
     background-color: #c82333;
     border-color: #c82333;
+}
+
+.sidebar-header h1 {
+  font-weight: bold; /* Texte plus gras */
+  color: #f39507;    /* Bleu */
+  font-size: 3rem;   /* Taille ajustée (optionnel) */
+  text-transform: uppercase; /* Met tout en majuscules (optionnel) */
+  margin: 0;         /* Supprime les marges inutiles */
 }
 

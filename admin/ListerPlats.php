@@ -79,14 +79,17 @@
 
             <!-- Main Content -->
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-                <div
+            <div
                     class="sidebar-header text-center py-3 d-flex justify-content-center flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 class="h2">CAFETERIA DU CHCL</h1>
                 </div>
-              
-                <form action="./ajouterPlats.php" method="post" class="contact-form">
-                    <input type="submit" class="btn btn-orange my-20" value="Ajouter">
-                </form>
+
+                <div class="d-flex justify-content-between align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">Liste des Plats</h1>
+                    <form action="./ajouterPlats.php" method="post">
+                        <input type="submit" class="btn btn-orange" id="openModalBtn" value="Ajouter">
+                    </form>                
+                </div>
                 <style>
                     
                 .tableau {
@@ -111,8 +114,8 @@
           $resultat = $query->fetchAll(PDO::FETCH_OBJ);
           if ($query->rowCount()>=1) {
             ?>
-                <section class="tableau">
-                    <table style="border-collapse:collapse;">
+                <div class="table-responsive">
+                <table class="table table-bordered">
                         <tr>
                             <th>Code Plat</th>
                             <th>Nom Plat</th>
@@ -153,10 +156,10 @@
                                 <td><?php echo $value->prix_plat; ?></td>
                                 <td><?php echo $value->quantite_plats; ?></td>
                                 <td>
-                                    <a href="modifier.php?codeid=<?php echo $value->code_plat; ?>" class="btn-small btn-small-warning" title="Modifier">
+                                    <a href="./modifierPlats.php?codeid=<?php echo $value->code_plat; ?>" class="btn-small btn-small-warning" title="Modifier">
                                         <i class="fas fa-edit"></i> Modifier
                                     </a>
-                                    <a href="supprimer.php?codeid=<?php echo $value->code_plat; ?>" class="btn-small btn-small-danger" title="Supprimer">
+                                    <a href="./supprimerPlats.php?codeid=<?php echo $value->code_plat; ?>" class="btn-small btn-small-danger" title="Supprimer">
                                         <i class="fas fa-trash"></i> Supprimer
                                     </a>
                                 </td>

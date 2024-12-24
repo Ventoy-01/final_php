@@ -83,9 +83,13 @@
                     class="sidebar-header text-center py-3 d-flex justify-content-center flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 class="h2">CAFETERIA DU CHCL</h1>
                 </div>
-                <form action="./ajouterVentes.php" method="post" class="contact-form">
-                    <input type="submit" class="btn btn-orange my-20" value="Ajouter">
-                </form>
+
+                <div class="d-flex justify-content-between align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">Liste des Ventes</h1>
+                    <form action="./ajouterVentes.php" method="post">
+                        <input type="submit" class="btn btn-orange" id="openModalBtn" value="Ajouter">
+                    </form>                
+                </div>
                 <style>
                 .tableau {
                     padding: 100px 50px 100px 50px;
@@ -109,8 +113,8 @@
           $resultat = $query->fetchAll(PDO::FETCH_OBJ);
           if ($query->rowCount()>=1) {
             ?>
-                <section class="tableau">
-                    <table style="border-collapse:collapse;">
+                <div class="table-responsive">
+                <table class="table table-bordered">
                         <tr>
                             <th>Code Vente</th>
                             <th>Code Client</th>
@@ -144,10 +148,10 @@
                                 <td><?php echo $value->Nonbre_plats; ?></td>
                                 <td><?php echo $value->Date_vente; ?></td>
                                 <td>
-                                    <a href="modifier.php?codeid=<?php echo $value->Code_vente; ?>" class="btn-small btn-small-warning" title="Modifier">
+                                    <a href="./modifierVentes.php?codeid=<?php echo $value->Code_vente; ?>" class="btn-small btn-small-warning" title="Modifier">
                                         <i class="fas fa-edit"></i> Modifier
                                     </a>
-                                    <a href="supprimer.php?codeid=<?php echo $value->Code_vente; ?>" class="btn-small btn-small-danger" title="Supprimer">
+                                    <a href="./supprimerVentes.php?codeid=<?php echo $value->Code_vente; ?>" class="btn-small btn-small-danger" title="Supprimer">
                                         <i class="fas fa-trash"></i> Supprimer
                                     </a>
                                 </td>

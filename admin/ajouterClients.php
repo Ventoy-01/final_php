@@ -48,7 +48,7 @@
 
         <label for="sexe">Sexe</label>
         Masculin: <input type="radio" name="sexe" id="sexe" value="Masculin" required/>
-        Feminin: <input type="radio" name="sexe" id="sexe" value="Feminim" required/> <br/>
+        Feminin: <input type="radio" name="sexe" id="sexe" value="Feminin" required/> <br/>
 
         <label for="telephone">Telephone</label>
         <input type="text" name="telephone" id="telephone" required/>

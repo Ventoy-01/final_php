@@ -83,6 +83,14 @@
                     class="sidebar-header text-center py-3 d-flex justify-content-center flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 class="h2">CAFETERIA DU CHCL</h1>
                 </div>
+
+                <div class="d-flex justify-content-between align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">Liste des Clients</h1>
+                    <form action="./ajouterClients.php" method="post">
+                        <input type="submit" class="btn btn-orange" id="openModalBtn" value="Ajouter">
+                    </form>                
+                </div>
+
                 <style>
                 .tableau {
                     padding: 100px 50px 100px 50px;
@@ -98,9 +106,7 @@
                     color: black
                 }
                 </style>
-                    <form action="./ajouterClients.php" method="post" class="contact-form">
-                    <input type="submit" class="btn btn-orange my-20" value="Ajouter">
-                </form>
+             
                 <?php
           $c = $_SESSION['prenom'];
           $sql = "SELECT * FROM clients where 1";
@@ -109,8 +115,8 @@
           $resultat = $query->fetchAll(PDO::FETCH_OBJ);
           if ($query->rowCount()>=1) {
             ?>
-                <section class="tableau">
-                    <table style="border-collapse:collapse;">
+                <div class="table-responsive">
+                <table class="table table-bordered">
                         <tr>
                             <th>Code</th>
                             <th>Nom</th>
@@ -137,33 +143,7 @@
           
           }
           ?>
-            <div id="myModal" class="modal">
-
-            <!-- // Modal Content   -->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h2>Ajouter un Client</h2>
-                    <span class="close">&times;</span>     
-                </div>
-                <div class="modal-body">
-                    <form action="" method="post" class="contact-form">
-        
-                        <label for="nom">Nom</label>
-                        <input type="text" name="nom" id="name">
-                        <label for="prenom">Prenom</label>
-                        <input type="text" name="date_fin" id="prenom" />
-                        <label for="sexe">Sexe</label>
-                        Masculin: <input type="radio" name="sexe" id="sexe" value="Masculin" />
-                        Feminin: <input type="radio" name="sexe" id="sexe" value="Feminim" /> <br/>
-                        <label for="nom">Telephone</label>
-                        <input type="text" name="telephone" id="telephone" />
-                        <input type="submit" class="btn btn-orange my-20" value="envoyer">
-                    </form>
-                </div>
-            </div>
-         
-            </div>
-                            <?php
+                    <?php
                     $sql = "SELECT * FROM clients where 1";
                     $query = $pdo->prepare($sql);
                     $query->execute();
@@ -180,10 +160,10 @@
                                 <td><?php echo $value->telephone; ?></td>
                                 <td><?php echo $value->date_save; ?></td>
                                 <td>
-                                    <a href="modifier.php?codeid=<?php echo $value->code_client; ?>" class="btn-small btn-small-warning" title="Modifier">
+                                    <a href="modifierClients.php?codeid=<?php echo $value->code_client; ?>" class="btn-small btn-small-warning" title="Modifier">
                                         <i class="fas fa-edit"></i> Modifier
                                     </a>
-                                    <a href="supprimer.php?codeid=<?php echo $value->code_client; ?>" class="btn-small btn-small-danger" title="Supprimer">
+                                    <a href="./supprimerClients.php?codeid=<?php echo $value->code_client; ?>" class="btn-small btn-small-danger" title="Supprimer">
                                         <i class="fas fa-trash"></i> Supprimer
                                     </a>
                                 </td>

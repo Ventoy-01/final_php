@@ -1,6 +1,7 @@
 <?php 
   session_start();
   // if(isset(($_SESSION['code_user']) AND ($_SESSION['code_user'])) !==null) {
+    include('../Includes/config.php');
 ?>
 
 <!DOCTYPE html>
@@ -85,35 +86,82 @@
                 </div>
 
                 <!-- Stat Cards -->
+                <?php
+                    // Requête pour compter les ventes effectuées aujourd'hui
+                    $sqlVentes = "SELECT COUNT(*) as totalVentes FROM ventes WHERE DATE(date_vente) = CURDATE()";
+                    $queryVentes = $pdo->prepare($sqlVentes);
+                    $queryVentes->execute();
+                    $ventes = $queryVentes->fetch(PDO::FETCH_ASSOC)['totalVentes'];
+                ?>
+
                 <div class="row">
                     <div class="col-md-3">
                         <div class="card text-white bg-prime mb-3">
                             <div class="card-body">
                                 <h5 class="card-title">Total Ventes aujourd.</h5>
-                                <p class="card-text">75</p>
+                                <p class="card-text"><?php echo $ventes; ?></p>
                             </div>
                         </div>
                     </div>
+
+                    <?php
+                        $sqlc = "SELECT COUNT(*) as total FROM clients";
+                        $queryc = $pdo->prepare($sqlc);
+                        $queryc->execute();
+                        $clients = $queryc->fetch(PDO::FETCH_ASSOC)['total'];
+                    ?>
+
                     <div class="col-md-3">
                         <div class="card text-white bg-su mb-3">
-                            <div class="card-body" <h5 class="card-title">Delivered</h5>
-                                <p class="card-text">357</p>
+                            <div class="card-body">
+                                 <h5 class="card-title">Total Clients</h5>
+                                <p class="card-text"><?php echo $clients; ?></p>
                             </div>
                         </div>
                     </div>
+                    <?php
+                        $sqlc = "SELECT COUNT(*) as total FROM users";
+                        $queryc = $pdo->prepare($sqlc);
+                        $queryc->execute();
+                        $users = $queryc->fetch(PDO::FETCH_ASSOC)['total'];
+                    ?>
                     <div class="col-md-3">
                         <div class="card text-white bg-da mb-3">
                             <div class="card-body">
-                                <h5 class="card-title">Canceled</h5>
-                                <p class="card-text">65</p>
+                                <h5 class="card-title">Total Users</h5>
+                                <p class="card-text"><?php echo $users; ?></p>
                             </div>
                         </div>
                     </div>
+                    <?php
+                        $revenu = 0;
+
+                        // Requête pour calculer le revenu total des ventes d'aujourd'hui
+                        $sqlRevenu = "
+                            SELECT SUM(ventes.nonbre_plats * plats.prix_plat) AS revenuTotal 
+                            FROM ventes 
+                            JOIN plats ON ventes.code_plat = plats.code_plat 
+                            WHERE DATE(ventes.date_vente) = CURDATE()
+                        ";
+
+                        $queryRevenu = $pdo->prepare($sqlRevenu);
+                        $queryRevenu->execute();
+                        $result = $queryRevenu->fetch(PDO::FETCH_ASSOC);
+
+                        if ($result && $result['revenuTotal'] !== null) {
+                            $revenu = $result['revenuTotal'];
+                        } else {
+                            $revenu = 0; // Aucun revenu trouvé
+                        }
+
+                    ?>
+
+
                     <div class="col-md-3">
                         <div class="card text-white bg-war mb-3">
                             <div class="card-body">
-                                <h5 class="card-title">Revenue</h5>
-                                <p class="card-text">$128</p>
+                                <h5 class="card-title">Revenue Ajourd.</h5>
+                                <p class="card-text"><?php echo $revenu ." HTG"; ?></p>
                             </div>
                         </div>
                     </div>
@@ -121,17 +169,113 @@
 
                 <!-- Charts -->
                 <div class="row mt-4 cercle">
+                    <!--  -->
+                    <?php
+                    try {
+                        // Requête pour compter les utilisateurs par rôle
+                        $sqlRoles = "
+                            SELECT role, COUNT(*) AS count 
+                            FROM users 
+                            GROUP BY role
+                        ";
+                        $queryRoles = $pdo->prepare($sqlRoles);
+                        $queryRoles->execute();
+                    
+                        // Stockez les résultats dans un tableau associatif
+                        $rolesCounts = [
+                            'admin' => 0,
+                            'super' => 0,
+                            'user' => 0
+                        ];
+                    
+                        foreach ($queryRoles->fetchAll(PDO::FETCH_ASSOC) as $row) {
+                            if (array_key_exists($row['role'], $rolesCounts)) {
+                                $rolesCounts[$row['role']] = (int)$row['count'];
+                            }
+                        }
+                    
+                        // Encodez les données en JSON pour les injecter dans le JS
+                        echo "<script>
+                            const rolesData = " . json_encode($rolesCounts) . ";
+                        </script>";
+                    } catch (Exception $e) {
+                        echo "Erreur : " . $e->getMessage();
+                    }             
+                    
+                    ?>
+
+                    <!--  -->
                     <div class="col-md-3">
                         <canvas id="totalOrdersChart"></canvas>
-                        <p class="text-center mt-2">Total Orders</p>
+                        <p class="text-center mt-2">Users per Classes</p>
                     </div>
+                    <!--  -->
+                    <?php
+                    try {
+                        // Requête pour compter les clients par sexe
+                        $sqlSexe = "
+                            SELECT sexe, COUNT(*) AS count 
+                            FROM clients 
+                            GROUP BY sexe
+                        ";
+                        $querySexe = $pdo->prepare($sqlSexe);
+                        $querySexe->execute();
+
+                        // Stockez les résultats dans un tableau associatif
+                        $sexeCounts = [
+                            'Masculin' => 0,
+                            'Feminin' => 0
+                        ];
+
+                        foreach ($querySexe->fetchAll(PDO::FETCH_ASSOC) as $row) {
+                            if (array_key_exists($row['sexe'], $sexeCounts)) {
+                                $sexeCounts[$row['sexe']] = (int)$row['count'];
+                            }
+                        }
+
+                        // Encodez les données en JSON pour les injecter dans le JS
+                        echo "<script>
+                            const sexeData = " . json_encode($sexeCounts) . ";
+                        </script>";
+                    } catch (Exception $e) {
+                        echo "Erreur : " . $e->getMessage();
+                    }
+                    ?>
+
+                    <!--  -->
                     <div class="col-md-3">
                         <canvas id="customerGrowthChart"></canvas>
-                        <p class="text-center mt-2">Customer Growth</p>
+                        <p class="text-center mt-2">Clients per Sexe</p>
                     </div>
+                    <!--  -->
+                    <?php
+                        try {
+                            // Requête pour compter les ventes d'aujourd'hui
+                            $sqlVentes = "SELECT COUNT(*) AS ventesAujourdhui FROM ventes WHERE DATE(date_vente) = CURDATE()";
+                            $queryVentes = $pdo->prepare($sqlVentes);
+                            $queryVentes->execute();
+                            $ventesAujourdhui = (int)$queryVentes->fetch(PDO::FETCH_ASSOC)['ventesAujourdhui'];
+
+                            // Requête pour le total des clients inscrits
+                            $sqlClients = "SELECT COUNT(*) AS totalClients FROM clients";
+                            $queryClients = $pdo->prepare($sqlClients);
+                            $queryClients->execute();
+                            $totalClients = (int)$queryClients->fetch(PDO::FETCH_ASSOC)['totalClients'];
+
+                            // Encodez les données en JSON
+                            echo "<script>
+                                const ventesAujourdhui = $ventesAujourdhui;
+                                const totalClients = $totalClients;
+                            </script>";
+                        } catch (Exception $e) {
+                            echo "Erreur : " . $e->getMessage();
+                        }
+                        ?>
+
+                    <!--  -->
                     <div class="col-md-3">
                         <canvas id="totalRevenueChart"></canvas>
-                        <p class="text-center mt-2">Total Revenue</p>
+                        <p class="text-center mt-2">Clients et Vente aujourd.</p>
                     </div>
                 </div>
 

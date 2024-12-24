@@ -13,7 +13,7 @@
       media="only screen and (max-width:500px)"
       href="../Css/style.mobile.css"
     />
-    <title>CAFETERIA | ADD CLIENT</title>
+    <title>CAFETERIA | ADD USERS</title>
     <script
       src="https://kit.fontawesome.com/b7f94dbfeb.js"
       crossorigin="anonymous"

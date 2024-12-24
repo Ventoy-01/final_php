@@ -1,74 +1,80 @@
-// Total Orders Chart
+// Assurez-vous que `rolesData` a été injecté par PHP
 const totalOrdersChart = new Chart(document.getElementById('totalOrdersChart'), {
-    type: 'doughnut',
-    data: {
-      labels: ['Completed', 'Pending', 'Cancelled'],
+  type: 'doughnut',
+  data: {
+      labels: ['Admin', 'Super', 'User'],
       datasets: [
-        {
-          label: 'Orders',
-          data: [75, 20, 5], // Vos données ici
-          backgroundColor: ['#4caf50', '#ff9800', '#f44336'],
-        },
+          {
+              label: 'Roles',
+              data: [rolesData.admin, rolesData.super, rolesData.user], // Données dynamiques
+              backgroundColor: ['#4caf50', '#ff9800', '#f44336'], // Couleurs pour chaque rôle
+          },
       ],
-    },
-    options: {
+  },
+  options: {
       responsive: true,
       plugins: {
-        legend: {
-          display: true,
-          position: 'bottom',
-        },
+          legend: {
+              display: true,
+              position: 'bottom',
+          },
       },
-    },
-  });
+  },
+});
+
   
   // Customer Growth Chart
-  const customerGrowthChart = new Chart(document.getElementById('customerGrowthChart'), {
-    type: 'pie',
-    data: {
-      labels: ['New Customers', 'Returning Customers'],
+ // Assurez-vous que `sexeData` a été injecté par PHP
+const customerGrowthChart = new Chart(document.getElementById('customerGrowthChart'), {
+  type: 'pie',
+  data: {
+      labels: ['Masculin', 'Feminin'],
       datasets: [
-        {
-          label: 'Growth',
-          data: [60, 40], // Vos données ici
-          backgroundColor: ['#2196f3', '#9c27b0'],
-        },
+          {
+              label: 'Clients par Sexe',
+              data: [sexeData.Masculin, sexeData.Feminin], // Données dynamiques
+              backgroundColor: ['#2196f3', '#9c27b0'], // Couleurs pour chaque sexe
+          },
       ],
-    },
-    options: {
+  },
+  options: {
       responsive: true,
       plugins: {
-        legend: {
-          display: true,
-          position: 'bottom',
-        },
+          legend: {
+              display: true,
+              position: 'bottom',
+          },
       },
-    },
-  });
+  },
+});
+
   
   // Total Revenue Chart
-  const totalRevenueChart = new Chart(document.getElementById('totalRevenueChart'), {
-    type: 'doughnut',
-    data: {
-      labels: ['Online', 'Offline'],
+// Assurez-vous que `ventesAujourdhui` et `totalClients` sont injectés par PHP
+const totalRevenueChart = new Chart(document.getElementById('totalRevenueChart'), {
+  type: 'doughnut',
+  data: {
+      labels: ['Ventes Aujourd\'hui', 'Clients Inscrits'],
       datasets: [
-        {
-          label: 'Revenue',
-          data: [70, 30], // Vos données ici
-          backgroundColor: ['#3f51b5', '#00bcd4'],
-        },
+          {
+              label: 'Statistiques',
+              data: [ventesAujourdhui, totalClients], // Données dynamiques
+              backgroundColor: ['#4caf50', '#00bcd4'], // Couleurs
+          },
       ],
-    },
-    options: {
+  },
+  options: {
       responsive: true,
       plugins: {
-        legend: {
-          display: true,
-          position: 'bottom',
-        },
+          legend: {
+              display: true,
+              position: 'bottom',
+          },
       },
-    },
-  });
+  },
+});
+
+
   
    // Get the modal
    var modal = document.getElementById("myModal");

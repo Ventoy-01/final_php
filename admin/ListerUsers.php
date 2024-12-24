@@ -46,6 +46,11 @@
             <!-- Main Content -->
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
 
+                 <div
+                    class="sidebar-header text-center py-3 d-flex justify-content-center flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">CAFETERIA DU CHCL</h1>
+                </div>
+
                 <div class="d-flex justify-content-between align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 class="h2">Liste des Utilisateurs</h1>
                     <form action="./ajouterUsers.php" method="post">
@@ -80,21 +85,29 @@
                                 <td><?php echo $value->email; ?></td>
                                 <td><?php echo $value->role; ?></td>
                                 <td>
-                                    <a href="modifier.php?codeid=<?php echo $value->code_user; ?>" class="btn-small btn-small-warning" title="Modifier">
-                                        <i class="fas fa-edit"></i> Modifier
-                                    </a>
-                                    <a href="supprimer.php?codeid=<?php echo $value->code_user; ?>" class="btn-small btn-small-danger" title="Supprimer">
-                                        <i class="fas fa-trash"></i> Supprimer
-                                    </a>
-                                </td>
-
-
+                                    <?php if($value->role == 'user'){
+                                        ?>
+                                        <a href="./modifierUsers.php?codeid=<?php echo $value->code_user; ?>" class="btn-small btn-small-warning" title="Modifier">
+                                            <i class="fas fa-edit"></i> Modifier
+                                        </a>
+                                        <a href="./supprimerUsers.php?codeid=<?php echo $value->code_user; ?>" class="btn-small btn-small-danger" title="Supprimer">
+                                            <i class="fas fa-trash"></i> Supprimer
+                                        </a>
+                                    </td>
+                                    <?php }
+                                    else{
+                                        echo "Action non autorisée";
+                                    }
+                                    ?>
 
                             </tr>
                             <?php } ?>
                         </tbody>
                     </table>
                 </div>
+
+                <!-- pours les admin et super -->
+                 
             </main>
         </div>
     </div>

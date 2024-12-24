@@ -13,7 +13,7 @@
       media="only screen and (max-width:500px)"
       href="../Css/style.mobile.css"
     />
-    <title>CAFETERIA | ADD PLATS</title>
+    <title>CAFETERIA | ADD VENTES</title>
     <script
       src="https://kit.fontawesome.com/b7f94dbfeb.js"
       crossorigin="anonymous"
@@ -52,7 +52,6 @@
         
         <input type="submit" class="btn btn-orange my-20" value="envoyer">
     </form>
-      </form>
     </section>
         <footer class="fouter">
                 <h5>Phoenix @copyright 2024</h5>
