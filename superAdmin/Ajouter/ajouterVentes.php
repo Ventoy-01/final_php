@@ -52,7 +52,7 @@
 
 
         <label for="quantite">Nombre de Plats</label>
-        <input type="number" name="quantite" id="quantite" required/>
+        <input type="number" name="quantite" id="quantite" value="<?php echo 1 ?>" disabled/>
 
         
         <input type="submit" class="btn btn-orange my-20" value="envoyer">
