@@ -75,6 +75,11 @@
                                  echo $_SESSION['prenom_user']." ".$_SESSION['nom_user'];
                                 ?>
                             </li>
+                            <li style="padding-left: 40px;">
+                                <?php 
+                                echo "Droit : ".$_SESSION['role'];
+                                ?>
+                            </li> 
                         </div>
 
                         <li class="nav-item " >  
