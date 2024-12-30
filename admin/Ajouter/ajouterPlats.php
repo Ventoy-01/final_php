@@ -24,11 +24,11 @@ if (!isset($_SESSION['prenom_user']) || !isset($_SESSION['nom_user'])) {
     <!-- Navigation -->
     <section class="header">
         <nav>
+            <h1>
+                <i class="fa-solid fa-c-tie"></i>
+                <a href="../index.php">Bonjour, <?php echo $_SESSION['prenom_user']." ".$_SESSION['nom_user'] ?></a>
+            </h1>
             <ul>
-                <h1>
-                    <i class="fa-solid fa-c-tie"></i>
-                    <a href="../index.php">Bonjour, <?php echo $_SESSION['prenom_user']." ".$_SESSION['nom_user'] ?></a>
-                </h1>
                 <li><a href="../Lister/ListerPlats.php">Lister Plats</a></li>
                 <li><a href="../../Includes/logout.php">Se deconnecter</a></li>
             </ul>

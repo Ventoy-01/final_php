@@ -339,7 +339,7 @@ a {
 }
 
 .btn-small-warning:hover {
-    background-color: #e0a800;
+    background-color: #967f39;
     border-color: #e0a800;
     color: #fff;
 }
@@ -351,7 +351,7 @@ a {
 }
 
 .btn-small-danger:hover {
-    background-color: #c82333;
+    background-color: #953e47;
     border-color: #c82333;
 }
 
@@ -363,3 +363,11 @@ a {
   margin: 0;         /* Supprime les marges inutiles */
 }
 
+.form-container {
+  max-width: 800px; /* Largeur maximale du formulaire */
+  margin: 4% 35%; /* Centrage horizontal */
+  padding: 20px;    /* Espacement interne */
+  background-color: #f4f4f4; /* Couleur de fond */
+  border-radius: 10px; /* Coins arrondis */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre portée */
+}
