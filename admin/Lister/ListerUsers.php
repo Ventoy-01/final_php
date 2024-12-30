@@ -103,10 +103,15 @@
                         </thead>
                         <tbody>
                             <?php
-                            $sql = "SELECT code_user, nom_user, prenom_user, pseudo_user, role_user FROM users";
+                            $code_user_connect = $_SESSION['code_user'];
+
+                            $sql = "SELECT code_user, nom_user, prenom_user, pseudo_user, role_user 
+                                    FROM users 
+                                    WHERE code_user != :code_user_connect";
                             $query = $pdo->prepare($sql);
-                            $query->execute();
+                            $query->execute([':code_user_connect' => $code_user_connect]);
                             $resultat = $query->fetchAll(PDO::FETCH_OBJ);
+                            
 
                             if ($query->rowCount() > 0) {
                                 foreach ($resultat as $value) {

@@ -5,8 +5,6 @@ if (!isset($_SESSION['prenom_user']) || !isset($_SESSION['nom_user'])) {
   exit;
 }
 ?>
-
-?>
 <!DOCTYPE html>
 <html lang="fr">
   <head>

@@ -58,7 +58,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="./ListerUsers.php">
-                                <i class="fas fa-c-tie"></i> Utilisateurs
+                                <i class="fas fa-user-tie"></i> Utilisateurs
                             </a>
                         </li>
                         <li class="nav-item">

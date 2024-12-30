@@ -137,7 +137,6 @@
                             <th>Cuisson Plat</th>
                             <th>Prix plat</th>
                             <th>Quantites Plats</th>
-                            <th>Action</th>
                         </tr>
                         <tbody>
                             <?php
@@ -162,14 +161,7 @@
                                 <td><?php echo $value->cuisson_plat; ?></td>
                                 <td><?php echo $value->prix_plat; ?></td>
                                 <td><?php echo $value->quantite_plat; ?></td>
-                                <td>
-                                    <a href="../Modifier/modifierPlats.php?codeid=<?php echo $value->code_plat; ?>" class="btn-small btn-small-warning" title="Modifier">
-                                        <i class="fas fa-edit"></i> Modifier
-                                    </a>
-                                    <a href="../Supprimer/supprimerPlats.php?codeid=<?php echo $value->code_plat; ?>" class="btn-small btn-small-danger" title="Supprimer">
-                                        <i class="fas fa-trash"></i> Supprimer
-                                    </a>
-                                </td>
+                              
                             </tr>
                         </tbody>
                         <?php }}?>

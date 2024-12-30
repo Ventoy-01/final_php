@@ -21,7 +21,7 @@ a {
 }
 .header {
   background: rgb(248, 217, 177);
-  overflow: auto;
+  /* overflow: auto; */
   font-weight: 1em;
 }
 .header nav h1 {
@@ -182,16 +182,19 @@ a {
 
   .contact {
     padding: 100px 0px 100px 0px;
-    min-height: 100vh;
-  }
+    min-height: 90vh;
+    /* background-color: #333 !important; */
+  } 
   .my-20 {
     margin-top: 20px;
     margin-bottom: 20px;
   }
-  .contact-form {
+  .contact .contact-form {
     max-width: 600px;
     margin: auto;
     padding: 20px;
+    background-color: #f1934f;
+    border-radius: 30px;
   }
   .contact-form label {
     display: block;
@@ -206,7 +209,7 @@ a {
     border: 1px solid #333;
     border-radius: 15px;
     outline-color: #f1934f;
-  }
+  } 
 
   .btn {
     display: inline-block;
@@ -286,13 +289,18 @@ a {
   display: flex;
   justify-content: center;
   margin-top: 70px;
-
+  background-color: #8f5132;
+   color: #fff;
+    text-align: center;
+    padding: 20px;
 }
+
 
   footer p {
     margin-bottom: 0px;
   }
 
+/* user, sidebar and icon */
   .user-connect{
     margin: 150px 0 60px 8px;
   }

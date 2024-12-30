@@ -98,6 +98,17 @@
                     class="sidebar-header text-center py-3 d-flex justify-content-center flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 class="h2">CAFETERIA DU CHCL</h1>
                 </div>
+                <?php
+                if (isset($_SESSION['success'])) {
+                    echo "<div class='alert alert-success'>".$_SESSION['success']."</div>";
+                    unset($_SESSION['success']);
+                }elseif(isset($_SESSION['error'])){
+                    echo "<div class='alert alert-danger'>".$_SESSION['error']."</div>";
+                    unset($_SESSION['error']);
+                }
+            
+
+                ?>
 
                 <div class="d-flex justify-content-between align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 class="h2">Liste des Ventes</h1>

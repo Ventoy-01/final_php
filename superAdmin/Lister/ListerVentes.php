@@ -98,6 +98,15 @@
                     class="sidebar-header text-center py-3 d-flex justify-content-center flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 class="h2">CAFETERIA DU CHCL</h1>
                 </div>
+                <?php
+                if (isset($_SESSION['success'])) {
+                    echo "<div class='alert alert-success'>".$_SESSION['success']."</div>";
+                    unset($_SESSION['success']);
+                }elseif(isset($_SESSION['error'])){
+                    echo "<div class='alert alert-danger'>".$_SESSION['error']."</div>";
+                    unset($_SESSION['error']);
+                }
+                ?>
 
                 <div class="d-flex justify-content-between align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 class="h2">Liste des Ventes</h1>
@@ -137,7 +146,6 @@
                             <th>Code user</th>
                             <th>N. plats</th>
                             <th>Date de Vente</th>
-                            <th>Action</th>
                         </tr>
                         <tbody>
                             <?php
@@ -164,14 +172,6 @@
                                 <td><?php echo $value->code_user; ?></td>
                                 <td><?php echo $value->nbre_plat; ?></td>
                                 <td><?php echo $value->date_vente; ?></td>
-                                <td>
-                                    <a href="../Modifier/modifierVentes.php?codeid=<?php echo $value->code_vente; ?>" class="btn-small btn-small-warning" title="Modifier">
-                                        <i class="fas fa-edit"></i> Modifier
-                                    </a>
-                                    <a href="../Supprimer/supprimerVentes.php?codeid=<?php echo $value->code_vente; ?>" class="btn-small btn-small-danger" title="Supprimer">
-                                        <i class="fas fa-trash"></i> Supprimer
-                                    </a>
-                                </td>
                             </tr>
                         </tbody>
                         <?php }}?>

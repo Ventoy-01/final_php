@@ -137,7 +137,6 @@
                             <th>Nom</th>
                             <th>Type Client</th>
                             <th>Telephone</th>
-                            <th>Action</th>
                         </tr>
                         <tbody>
                             <?php
@@ -161,15 +160,7 @@
                                 <td><?php echo $value->nom_client; ?></td>                
                                 <td><?php echo $value->type_client; ?></td>
                                 <td><?php echo $value->phone_client; ?></td>
-                                <td>
-                                    <a href="../Modifier/modifierClients.php?codeid=<?php echo $value->code_client; ?>" class="btn-small btn-small-warning" title="Modifier">
-                                        <i class="fas fa-edit"></i> Modifier
-                                    </a>
-                                    <a href="../Supprimer/supprimerClients.php?codeid=<?php echo $value->code_client; ?>" class="btn-small btn-small-danger" title="Supprimer">
-                                        <i class="fas fa-trash"></i> Supprimer
-                                    </a>
-                                </td>
-                            </tr>
+                      </tr>
                         </tbody>
                         <?php }}?>
                     </table>

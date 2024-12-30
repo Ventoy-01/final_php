@@ -106,6 +106,10 @@
                     echo "<div class='alert alert-danger'>".$_SESSION['error']."</div>";
                     unset($_SESSION['error']);
                 }
+                if (isset($_SESSION['notSave'])) {
+                    echo "<div class='alert alert-danger'>".$_SESSION['notSave']."</div>";
+                    unset($_SESSION['notSave']);
+                }
                 ?>
 
                 <div class="d-flex justify-content-between align-items-center pt-3 pb-2 mb-3 border-bottom">

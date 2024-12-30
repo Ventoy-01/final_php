@@ -50,13 +50,44 @@ if ($counterp == 0) {
     echo '<script>setTimeout(function() { window.location.href = "../Ajouter/ajouterVentes.php"; }, 500);</script>';
     exit;
 }
+// Verifier si le client n'a pas déjà effectué une vente aujourd'hui
+$date_vente = date('Y-m-d'); // Date actuelle
 
-// Insertion des données dans la table ventes
-$sql = "INSERT INTO `ventes` (`code_vente`, `code_client`, `code_plat`, `code_user`, `nbre_plat`) VALUES (?, ?, ?, ?,?)";
-$query = $pdo->prepare($sql);
-$query->execute([$code_vente, $code_client, $code_plat,$code_user, $quantite]);
+try {
+    // Vérifier si une vente existe déjà pour ce client aujourd'hui
+    $sql = "SELECT COUNT(*) AS count FROM ventes WHERE code_client = :code_client AND date_vente = :date_vente";
+    $query = $pdo->prepare($sql);
+    $query->execute([
+        ':code_client' => $code_client,
+        ':date_vente' => $date_vente,
+    ]);
 
-// Succès de l'insertion
-echo '<script>alert("Enregistrement réussi");</script>';
-echo '<script>setTimeout(function() { window.location.href = "../Lister/ListerVentes.php"; }, 500);</script>';
+    $result = $query->fetch(PDO::FETCH_ASSOC);
+
+    if ($result['count'] > 0) {
+        // Une vente existe déjà pour ce client aujourd'hui
+        echo '<script>alert("Une vente existe déjà pour ce client aujourd\'hui");</script>';
+        echo '<script>setTimeout(function() { window.location.href = "../Lister/ListerVentes.php"; }, 500);</script>';
+        exit();
+    } else {
+            // Insertion des données dans la table ventes
+            $sql = "INSERT INTO `ventes` (`code_vente`, `code_client`, `code_plat`, `code_user`, `nbre_plat`) VALUES (?, ?, ?, ?,?)";
+            $query = $pdo->prepare($sql);
+            $query->execute([$code_vente, $code_client, $code_plat,$code_user, $quantite]);
+
+            // Succès de l'insertion
+            echo '<script>alert("Enregistrement réussi");</script>';
+            echo '<script>setTimeout(function() { window.location.href = "../Lister/ListerVentes.php"; }, 500);</script>';
+
+        $_SESSION['success'] = "Vente enregistrée avec succès.";
+        header('location: ../Lister/ListerVentes.php');
+        exit();
+    }
+} catch (Exception $e) {
+    error_log($e->getMessage());
+    $_SESSION['error'] = "Une erreur est survenue lors de l'enregistrement de la vente.";
+    header('location: ../Lister/ListerVentes.php');
+        exit();
+    }
+
 ?>
