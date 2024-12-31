@@ -63,6 +63,11 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="./changeSuperPassword.php">
+                            <i class="fa-solid fa-key"></i> Change Password
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="../Includes/logout.php">
                                 <i class="fas fa-sign-out-alt"></i> Se deconnecter
                             </a>

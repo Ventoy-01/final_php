@@ -21,7 +21,7 @@
         $role_user = trim($_POST['role_user']);
     }
    
-   
+try { 
     $sql = "INSERT INTO `users`(`code_user`, `nom_user`, `prenom_user`,`pseudo_user`,`password_user`, `role_user`) VALUES
     (?,?,?,?,?,?)";
     $query = $pdo->prepare($sql);
@@ -29,6 +29,11 @@
     $query->execute($array);
     echo '<script type="text/javascript">alert("Enregistrement reussi");</script>';
     header('location:../Lister/ListerUsers.php');
+    exit();
+} catch (PDOException $e) {
+    echo '<script type="text/javascript">alert("Une erreur / pseudo peut etre existant");</script>';
+    echo '<script>setTimeout(function() { window.location.href = "../Ajouter/ajouterUsers.php"; }, 500);</script>';
+    exit();}
 
     
 ?>

@@ -6,7 +6,6 @@ if (!isset($_SESSION['prenom_user']) || !isset($_SESSION['nom_user'])) {
 }
 ?>
 
-?>
 <!DOCTYPE html>
 <html lang="fr">
   <head>
@@ -39,6 +38,8 @@ if (!isset($_SESSION['prenom_user']) || !isset($_SESSION['nom_user'])) {
         </ul>
       </nav>
     </section>
+    <br><br>
+    <h1 style="text-align: center;">Ajouter un Plat</h1>
 
     <section class="contact">
     <form action="../Traitement/TraitementAjouterPlats.php" method="post" class="contact-form">

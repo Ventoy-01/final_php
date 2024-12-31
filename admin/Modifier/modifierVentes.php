@@ -37,6 +37,7 @@
         </ul>
       </nav>
     </section>
+    <br><br>
         <h1 style="text-align: center;">Formulaire de modification</h1>
     <section class="contact">
         
@@ -52,7 +53,7 @@
                       foreach ($resultat as $value) {
 
                 ?>
-                <form action="../Traitement/TraitementModifierVentes.php" method="post" class="contact-form">
+                <form action="../Traitement/TraitementModifierVentes.php?id=<?= $cid ?>" method="post" class="contact-form">
 
 
                     <input type="hidden" name="codeid" value="<?php echo $value-> code_vente?>" />
@@ -61,7 +62,7 @@
                     <input type="text" name="nom" id="nom" value="<?php echo $value-> code_client?>" disabled />
 
                     <label for="code_plat">Code Plat</label>
-                    <input type="text" name="code_plat" id="cuisson"  value="<?php echo $value-> code_plat?>" disabled/>
+                    <input type="text" name="code_plat" id="cuisson"  value="<?php echo $value-> code_plat?>">
                     
                     <label for="code_user">Code User</label>
                     <input type="text" name="code_user" id="cuisson"  value="<?php echo $value-> code_user?>" disabled/>

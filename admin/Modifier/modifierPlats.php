@@ -37,6 +37,7 @@
         </ul>
       </nav>
     </section>
+    <br><br>
         <h1 style="text-align: center;">Formulaire de modification</h1>
     <section class="contact">
         
@@ -60,16 +61,26 @@
                     <label for="nom_plat">Nom Plat</label>
                     <input type="text" name="nom_plat" id="nom_plat" value="<?php echo $value-> nom_plat?>" required />
 
-                    <label for="cuisson_plat">Type Cuisson</label>
-                    Cru: <input type="radio" name="cuisson_plat" id="cuisson_plat" value="Cru" required/>
-                    Cuit: <input type="radio" name="cuisson_plat" id="cuisson_plat" value="Cuit" required/> <br/>
-                    Grille: <input type="radio" name="cuisson_plat" id="cuisson_plat" value="Grille" required/> <br/>      
+                    <label for="cuisson_plat">Type Cuisson</label><br/>
+
+                    Cru: 
+                    <input type="radio" name="cuisson_plat" id="cuisson_plat_cru" value="Cru" required 
+                        <?php echo ($value -> cuisson_plat === 'Cru') ? 'checked' : ''; ?> />
+
+                    Cuit: 
+                    <input type="radio" name="cuisson_plat" id="cuisson_plat_cuit" value="Cuit" required 
+                        <?php echo ($value -> cuisson_plat === 'Cuit') ? 'checked' : ''; ?> />
+
+                    Grille: 
+                    <input type="radio" name="cuisson_plat" id="cuisson_plat_grille" value="Grille" required 
+                        <?php echo ($value -> cuisson_plat === 'Grille') ? 'checked' : ''; ?> />
+                        
 
                     <label for="prix_plat">Prix</label>
                     <input type="number" name="prix_plat" id="prix" value="<?php echo $value-> prix_plat?>" required/>
                     
                     <label for="quantite_plat">Quantite Plats</label>
-                    <input type="number" name="quantite_plat" id="quantite_plat" value="<?php echo $value-> quantite_plat?>" required/>
+                    <input type="number" name="quantite_plat" id="quantite_plat" value="<?php echo $value-> quantite_plat?>" min="1" required/>
 
                     <input type="submit" class="btn btn-orange my-20" value="Modifier">
                 </form>

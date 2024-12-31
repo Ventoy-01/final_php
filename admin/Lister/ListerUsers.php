@@ -86,7 +86,7 @@
 
                 <div class="d-flex justify-content-between align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 class="h2">Liste des Utilisateurs</h1>
-                    <a href="../Ajouter/ajouterUsers.php" class="btn btn-primary">Ajouter un utilisateur</a>
+                    <a href="../Ajouter/ajouterUsers.php" class="btn btn-orange">Add User</a>
                 </div>
 
                 <div class="table-responsive">
@@ -123,14 +123,18 @@
                                 <td><?= htmlspecialchars($value->pseudo_user); ?></td>
                                 <td><?= htmlspecialchars($value->role_user); ?></td>
                                 <td>
-                                    <a href="../Modifier/modifierUsers.php?codeid=<?= $value->code_user; ?>" class="btn-small btn-small-warning">
-                                        <i class="fas fa-edit"></i> Modifier
-                                    </a>
-                                    
-                                    <a href="../Traitement/TraitementSupprimerUsers.php?codeid=<?= $value->code_user; ?>" class="btn-small btn-small-danger"
-                                    onclick="return confirm('Voulez-vous vraiment supprimer cet utilisateur ?')">
-                                        <i class="fas fa-trash"></i>Supprimer
-                                    </a>
+                                    <?php if ($value->role_user != 'user') {
+                                        echo "Aucune action";
+                                    } else { ?>
+                                        <a href="../Modifier/modifierUsers.php?codeid=<?= $value->code_user; ?>" class="btn-small btn-small-warning">
+                                            <i class="fas fa-edit"></i> Modifier
+                                        </a>
+                                        
+                                        <a href="../Traitement/TraitementSupprimerUsers.php?codeid=<?= $value->code_user; ?>" class="btn-small btn-small-danger"
+                                        onclick="return confirm('Voulez-vous vraiment supprimer cet utilisateur ?')">
+                                            <i class="fas fa-trash"></i>Supprimer
+                                        </a>
+                                    <?php } ?>
                                 </td>
                             </tr>
                             <?php

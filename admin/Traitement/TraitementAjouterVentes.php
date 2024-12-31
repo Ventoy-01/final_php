@@ -51,12 +51,20 @@ if ($nombreRestant < 1) {
 }
 
 // Vérifier si le client a déjà effectué une vente aujourd'hui
-$date_vente = date('Y-m-d');
-$sqlVenteJour = "SELECT COUNT(*) AS count FROM ventes WHERE code_client = :code_client AND date_vente = :date_vente";
+$date_vente = date('Y-m-d'); // Date actuelle au format 'YYYY-MM-DD'
+
+// Requête pour vérifier les ventes du jour pour ce client
+$sqlVenteJour = "SELECT COUNT(*) FROM ventes WHERE code_client = :code_client AND DATE(date_vente) = :date_vente";
 $query = $pdo->prepare($sqlVenteJour);
-$query->execute([':code_client' => $code_client, ':date_vente' => $date_vente]);
-$resultVenteJour = $query->fetch(PDO::FETCH_ASSOC);
-if ((int)$resultVenteJour['count'] > 0) {
+$query->execute([
+    ':code_client' => $code_client,
+    ':date_vente' => $date_vente
+]);
+
+// Vérifier si une vente existe déjà pour ce client aujourd'hui
+$result = $query->fetchColumn();
+if ($result> 0) {
+    // Une vente existe déjà pour ce client aujourd'hui
     setErrorAndRedirect("Le client a déjà effectué une vente aujourd'hui.", "../Lister/ListerVentes.php");
 }
 

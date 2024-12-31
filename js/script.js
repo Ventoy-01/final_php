@@ -58,7 +58,7 @@ const totalRevenueChart = new Chart(document.getElementById('totalRevenueChart')
       labels: ['Ventes Aujourd\'hui', 'Clients Inscrits'],
       datasets: [
           {
-              label: 'Statistiques',
+              label: 'Quantité',
               data: [ventesAujourdhui, totalClients], // Données dynamiques
               backgroundColor: ['#4caf50', '#00bcd4'], // Couleurs
           },

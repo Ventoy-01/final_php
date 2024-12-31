@@ -32,6 +32,8 @@
             </ul>
         </nav>
     </section>
+    <br><br>
+    <h1 style="text-align: center;">Ajouter un Utilisateur</h1>
 
     <div class="form-container">
         <form action="../Traitement/TraitementAjouterUsers.php" method="post" class="contact-form ">

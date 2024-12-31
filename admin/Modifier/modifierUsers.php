@@ -32,11 +32,12 @@
           <a href="../index.php">Bonjour, <?php echo $_SESSION['prenom_user']." ".$_SESSION['nom_user'] ?></a>
         </h1>
         <ul>
-          <li><a href="../Lister/ListerClients.php">Lister Clients</a></li> 
+          <li><a href="../Lister/ListerUsers.php">Lister Users</a></li> 
           <li><a href="../../Includes/logout.php">Se deconnecter</a></li>
         </ul>
       </nav>
     </section>
+    <br><br>
         <h1 style="text-align: center;">Formulaire de modification</h1>
     <section class="contact">
         
@@ -52,7 +53,7 @@
                       foreach ($resultat as $value) {
 
                 ?>
-      <form action="../Traitement/TraitementModifierUsers.php" method="post" class="contact-form">
+      <form action="../Traitement/TraitementModifierUsers.php?id=<?= $cid ?>" method="post" class="contact-form">
 
         <input type="hidden" name="codeid" value="<?php echo $value-> code_user?>" />
 

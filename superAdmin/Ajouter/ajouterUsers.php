@@ -31,14 +31,13 @@
             </ul>
         </nav>
     </section>
+    <br><br>
+    <h1 style="text-align: center;">Ajouter un utilisateur</h1>
 
     <div class="form-container">
         <form action="../Traitement/TraitementAjouterUsers.php" method="post" class="contact-form">
             <!-- Champ caché pour le code utilisateur généré automatiquement -->
             <input type="hidden" name="code_user" value="<?php echo htmlspecialchars(('User-'.rand(0001,9000) )); ?>" />
-
-            <!-- Champ caché pour définir le rôle par défaut -->
-            <input type="hidden" name="role_user" value="user" />
 
             <!-- Nom -->
             <label for="nom_user">Nom</label>
@@ -52,9 +51,14 @@
             <label for="pseudo_user">Pseudo</label>
             <input type="text" name="pseudo_user" id="pseudo_user" required />
 
+            <!--  -->
+            <label for="role_user">Role</label>
+            User: <input type="radio" name="role_user" id="role_user" value="user" required/>
+            Admin: <input type="radio" name="role_user" id="role_user" value="admin" required/> <br/>
+
             <!-- Mot de passe -->
             <label for="password_user">Mot de passe</label>
-            <input type="password" name="password_user" id="password_user" required minlength="8" />
+            <input type="password" name="password_user" id="password_user" required />
 
             <!-- Bouton de soumission -->
             <input type="submit" class="btn btn-orange my-20" value="Valider" />

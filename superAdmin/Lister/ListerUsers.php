@@ -41,6 +41,11 @@
                         <li class="nav-item"><a class="nav-link" href="./ListerClients.php"><i class="fas fa-users"></i> Clients</a></li>
                         <li class="nav-item"><a class="nav-link" href="./ListerVentes.php"><i class="fas fa-shopping-cart"></i> Vente</a></li>
                         <li class="nav-item"><a class="nav-link active" href="#"><i class="fas fa-user-tie"></i> Utilisateurs</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../changeSuperPassword.php">
+                            <i class="fa-solid fa-key"></i> Change Password
+                            </a>
+                        </li>
                         <li class="nav-item"><a class="nav-link" href="../../Includes/logout.php"><i class="fas fa-sign-out-alt"></i> Se déconnecter</a></li>
                         <!--  -->
                         <div class="user-connect">
@@ -86,7 +91,7 @@
 
                 <div class="d-flex justify-content-between align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 class="h2">Liste des Utilisateurs</h1>
-                    <a href="../Ajouter/ajouterUsers.php" class="btn btn-primary">Ajouter un utilisateur</a>
+                    <a href="../Ajouter/ajouterUsers.php" class="btn btn-orange">Add User</a>
                 </div>
 
                 <div class="table-responsive">

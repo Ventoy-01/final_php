@@ -29,7 +29,7 @@
       <nav>
         <h1>
           <i class="fa-solid fa-mug-hot"></i>
-          <a href="../index.php">Bonjour, <?php $_SESSION['prenom_user']." ".$_SESSION['nom_user'] ?></a>
+          <a href="../index.php">Bonjour, <?php echo $_SESSION['prenom_user']." ".$_SESSION['nom_user'] ?></a>
         </h1>
         <ul>
           <li><a href="../Lister/ListerClients.php">Lister Clients</a></li> 
@@ -37,6 +37,7 @@
         </ul>
       </nav>
     </section>
+    <br><br>
         <h1 style="text-align: center;">Formulaire de modification</h1>
     <section class="contact">
         
@@ -52,23 +53,36 @@
                       foreach ($resultat as $value) {
 
                 ?>
-                <form action="../Traitement/TraitementModifierClients.php" method="post" class="contact-form">
+                <form action="../Traitement/TraitementModifierClients.php?id=<?= $cid; ?>" method="post" class="contact-form">
 
                     <input type="hidden" name="codeid" value="<?php echo $value-> code_client?>" />
 
                                         
-                    <label for="nom_client">Nom Client</label>
-                    <input type="text" name="nom_client" id="nom" value="<?php echo $value-> nom_client?>" required/>
+                    <label for="nom_client">Nom Complet du Client</label>
+                    <input type="text" placeholder="Entrer le nom complet du client" name="nom_client" id="nom" value="<?php echo $value-> nom_client?>" required/>
 
-                    <label for="sexe">Type Client</label>
-                    Etudiant: <input type="radio" name="type_client" id="sexe" value="etudiant" required/>
-                    Professeur: <input type="radio" name="type_client" id="sexe" value="professeur" required/> <br/>
-                    Personnel admin: <input type="radio" name="type_client" id="sexe" value="personnel_admin" required/> <br/>
-                    Inviter: <input type="radio" name="type_client" id="sexe" value="inviter" required/> <br/>
+                    <label for="type_client">Type Client</label>
 
-                    <label for="phone_client">Telephone</label>
-                    <input type="text" name="phone_client" id="phone_client" value="<?php echo $value-> phone_client?>" required/>
-                                <input type="submit" class="btn btn-orange my-20" value="Modifier">
+                      Etudiant: 
+                      <input type="radio" name="type_client" id="sexe" value="etudiant" 
+                          <?php echo ($value->type_client == 'etudiant') ? 'checked' : ''; ?> required/>
+
+                      Professeur: 
+                      <input type="radio" name="type_client" id="sexe" value="professeur" 
+                          <?php echo ($value->type_client == 'professeur') ? 'checked' : ''; ?> required/> <br/>
+
+                      Personnel admin: 
+                      <input type="radio" name="type_client" id="sexe" value="personnel_admin" 
+                          <?php echo ($value->type_client == 'personnel_admin') ? 'checked' : ''; ?> required/> <br/>
+
+                      Inviter: 
+                      <input type="radio" name="type_client" id="sexe" value="inviter" 
+                          <?php echo ($value->type_client == 'inviter') ? 'checked' : ''; ?> required/> <br/>
+
+                    <label for="phone_client">Telephone : (sans +509)</label>
+                    <input type="text" placeholder="Votre telephone commence par (2 , 3, 4, 5)" name="phone_client" id="phone_client" value="<?php echo $value-> phone_client?>" required/>
+
+                   <input type="submit" class="btn btn-orange my-20" value="Modifier">
                 </form>
                 <?php }}?>
     </section>

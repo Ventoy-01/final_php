@@ -10,11 +10,29 @@
     }
     
     if (!empty(isset($_POST['phone_client']))) {
-        $telephone = trim($_POST['phone_client']);
+        $phone = trim($_POST['phone_client']);
     }
   
     if (!empty(isset($_POST['codeid']))) {
         $codeid = trim($_POST['codeid']);
+    }
+    
+    if (!empty(isset($_POST['codeid']))) {
+        $id = trim($_POST['id']);
+    }
+
+
+    function validerNumeroHaitienStatique($numero) {
+        $regex = '/^[2345][0-9]{7}$/';
+        return preg_match($regex, $numero) === 1;
+    }
+    if (!validerNumeroHaitienStatique($phone)) {
+        echo '<script>alert("numéro Haiti invalide");</script>';
+        echo '<script>setTimeout(function() {window.location.href = "../Modifier/ModifierUsers.php?codeid=' . $id . '";}, 500);</script>';
+        exit();
+    } 
+    else {
+        $telephone = "+509 ".$phone;
     }
     $sql = "UPDATE `clients` SET `nom_client`=:nom,`type_client`=:type_client,
   `phone_client`=:telephone WHERE `code_client`=:codeid";

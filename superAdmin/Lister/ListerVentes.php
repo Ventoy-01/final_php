@@ -62,6 +62,11 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="../changeSuperPassword.php">
+                            <i class="fa-solid fa-key"></i> Change Password
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="../../Includes/logout.php">
                                 <i class="fas fa-sign-out-alt"></i> Se deconnecter
                             </a>
@@ -109,10 +114,7 @@
                 ?>
 
                 <div class="d-flex justify-content-between align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 class="h2">Liste des Ventes</h1>
-                    <form action="../Ajouter/ajouterVentes.php" method="post">
-                        <input type="submit" class="btn btn-orange" id="openModalBtn" value="Ajouter">
-                    </form>                
+                    <h1 class="h2">Liste des Ventes</h1>              
                 </div>
                 <style>
                 .tableau {

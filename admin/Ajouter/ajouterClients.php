@@ -36,15 +36,15 @@
         </ul>
       </nav>
     </section>
-
-    <h1 style="text-align: center;">Ajouter un Clients</h1>
+    <br><br>
+    <h1 style="text-align: center;">Ajouter un Client</h1>
     <section class="contact">
     <form action="../Traitement/TraitementAjouterClients.php" method="post" class="contact-form">
 
         <input type="hidden" name="code_client" value="<?php echo "Client-".rand(0001,9000) ?>" />
         
-        <label for="nom">Nom Client</label>
-        <input type="text" name="nom" id="nom" required/>
+        <label for="nom">Nom Complet du Client</label>
+        <input type="text" placeholder="Entrer le nom complet du client" name="nom" id="nom" required/>
 
         <label for="sexe">Type Client</label>
         Etudiant: <input type="radio" name="type_client" id="sexe" value="etudiant" required/>
@@ -52,8 +52,8 @@
         Personnel admin: <input type="radio" name="type_client" id="sexe" value="personnel_admin" required/> <br/>
         Inviter: <input type="radio" name="type_client" id="sexe" value="inviter" required/> <br/>
 
-        <label for="telephone">Telephone</label>
-        <input type="text" name="telephone" id="telephone" required/>
+        <label for="telephone">Telephone : (sans +509)</label>
+        <input type="text" placeholder="Votre telephone commence par (2 , 3, 4, 5)" name="telephone" id="telephone" required/>
         
         <input type="submit" class="btn btn-orange my-20" value="envoyer">
     </form>

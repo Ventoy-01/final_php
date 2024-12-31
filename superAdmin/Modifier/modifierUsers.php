@@ -32,11 +32,12 @@
           <a href="../index.php">Bonjour, <?php echo $_SESSION['prenom_user']." ".$_SESSION['nom_user'] ?></a>
         </h1>
         <ul>
-          <li><a href="../Lister/ListerClients.php">Lister Clients</a></li> 
+          <li><a href="../Lister/ListerUsers.php">Lister Users</a></li> 
           <li><a href="../../Includes/logout.php">Se deconnecter</a></li>
         </ul>
       </nav>
     </section>
+    <br><br>
         <h1 style="text-align: center;">Formulaire de modification</h1>
     <section class="contact">
         
@@ -52,7 +53,7 @@
                       foreach ($resultat as $value) {
 
                 ?>
-      <form action="../Traitement/TraitementModifierUsers.php" method="post" class="contact-form">
+      <form action="../Traitement/TraitementModifierUsers.php?id=<?= $cid ?>" method="post" class="contact-form">
 
         <input type="hidden" name="codeid" value="<?php echo $value-> code_user?>" />
 
@@ -63,9 +64,17 @@
         <input type="text" name="prenom_user" id="prenom" value="<?php echo $value->prenom_user ?>" required/>
 
         <label for="role_user">Role</label>
-        User: <input type="radio" name="role_user" id="role_user" value="user" required/>
-        Admin: <input type="radio" name="role_user" id="role_user" value="admin" required/> <br/>
-        Super: <input type="radio" name="role_user" id="role_user" value="super" required/> <br/>  
+        <!-- Quelle rôle a été sélectionné -->
+        <?php 
+        if ($value->role_user == "user") { ?>
+            User: <input type="radio" name="role_user" id="role_user_user" value="user" checked required/>
+            Admin: <input type="radio" name="role_user" id="role_user_admin" value="admin" required/> <br/>
+        <?php 
+        } else { ?>
+            User: <input type="radio" name="role_user" id="role_user_user" value="user" required/>
+            Admin: <input type="radio" name="role_user" id="role_user_admin" value="admin" checked required/> <br/>
+        <?php 
+        } ?>
     
         <label for="pseudo_user">Pseudo User</label>
         <input type="text" name="pseudo_user" value="<?php echo $value->pseudo_user ?>" id="pseudo_user" required/>

@@ -36,6 +36,8 @@
         </ul>
       </nav>
     </section>
+    <br><br>
+    <h1 style="text-align: center;">Ajouter une Vente</h1>
 
     <section class="contact">
     <form action="../Traitement/TraitementAjouterVentes.php" method="post" class="contact-form">

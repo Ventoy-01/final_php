@@ -82,7 +82,7 @@
                     </div>
                 </div>
                 <div class="card">
-                    <img class="img" src="./images/th.jfif" alt="plat">
+                    <img class="img" src="./images/bon_gout" alt="plat">
                     <div class="description">
                         <p>Paté Sèche</p>
                         <p>Sauce Poulet</p>
