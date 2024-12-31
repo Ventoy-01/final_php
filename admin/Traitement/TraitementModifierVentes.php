@@ -55,7 +55,7 @@ $query->execute([
 ]);
 
 if ($query->rowCount() > 0) {
-    setErrorAndRedirect("Le client a déjà effectué une vente aujourd'hui.", "../Lister/ListerVentes.php", $id);
+    setErrorAndRedirect("Le client a déjà effectué un achat aujourd'hui.", "../Lister/ListerVentes.php", $id);
 }
 
 // Mise à jour de la vente

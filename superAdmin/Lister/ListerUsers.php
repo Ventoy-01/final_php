@@ -39,7 +39,7 @@
                         <li class="nav-item"><a class="nav-link" href="../index.php"><i class="fas fa-home"></i> Dashboard</a></li>
                         <li class="nav-item"><a class="nav-link" href="./ListerPlats.php"><i class="fas fa-utensils"></i> Plats</a></li>
                         <li class="nav-item"><a class="nav-link" href="./ListerClients.php"><i class="fas fa-users"></i> Clients</a></li>
-                        <li class="nav-item"><a class="nav-link" href="./ListerVentes.php"><i class="fas fa-shopping-cart"></i> Vente</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./ListerVentes.php"><i class="fas fa-shopping-cart"></i> Ventes</a></li>
                         <li class="nav-item"><a class="nav-link active" href="#"><i class="fas fa-user-tie"></i> Utilisateurs</a></li>
                         <li class="nav-item">
                             <a class="nav-link" href="../changeSuperPassword.php">

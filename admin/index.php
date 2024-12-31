@@ -53,7 +53,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="./Lister/ListerVentes.php">
-                                <i class="fas fa-shopping-cart"></i> Vente
+                                <i class="fas fa-shopping-cart"></i> Ventes
                             </a>
                         </li>
                         <li class="nav-item">
@@ -299,22 +299,22 @@
                     <!-- Modal Content  -->
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h2>Generer un rapport</h2>
+                            <h2>Généré un rapport</h2>
                             <span class="close">&times;</span>
                         </div>
                         <div class="modal-body">
                             <form action="../html2pdffinal/file.php" method="post" class="contact-form">
                                 <label for="date_deb">Date debut</label>
-                                <input type="date" name="date_deb" id="date_deb" />
+                                <input type="date" name="date_deb" id="date_deb" required/>
                                 <label for="date_fin">Date fin</label>
-                                <input type="date" name="date_fin" id="date_fin" />
-                                <input type="submit" class="btn btn-orange my-20" value="envoyer">
+                                <input type="date" name="date_fin" id="date_fin" required />
+                                <input type="submit" class="btn btn-orange my-20" value="Validé">
                             </form>
                         </div>
                     </div>
                 </div>
                 <div class="genere">
-                    <button id="myBtn" class="btn btn-orange my-10"><i class="fa-solid fa-file-pdf"></i> Générer un
+                    <button id="myBtn" class="btn btn-orange my-10"><i class="fa-solid fa-file-pdf"></i> Généré un
                         rapport</button>
                 </div>
             </main>

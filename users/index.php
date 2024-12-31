@@ -53,7 +53,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="./Lister/ListerVentes.php">
-                                <i class="fas fa-shopping-cart"></i> Vente
+                                <i class="fas fa-shopping-cart"></i> Ventes
                             </a>
                         </li>
                         <li class="nav-item">
