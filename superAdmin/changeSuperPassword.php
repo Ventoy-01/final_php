@@ -16,12 +16,12 @@
     <!-- Header -->
     <section class="header">
         <nav>
-            <ul>
+            <ul >
                 <h1>
                     <i class="fa-solid fa-mug-hot"></i>
                     <a href="./index.html">CAFETERIA DU CHCL</a>
                 </h1>
-                <li><a class="btn" href="./index">Retour</a></li>
+                <li style="padding-left: 70%;"><a class="btn" href="./index">Retour</a></li>
             </ul>
         </nav>
     </section>

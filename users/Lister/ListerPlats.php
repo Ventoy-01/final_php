@@ -56,11 +56,11 @@
                                 <i class="fas fa-shopping-cart"></i> Ventes
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a class="nav-link" href="./ListerUsers.php">
                                 <i class="fas fa-user-tie"></i> Utilisateurs
                             </a>
-                        </li>
+                        </li> -->
                         <li class="nav-item">
                             <a class="nav-link" href="../../Includes/logout.php">
                                 <i class="fas fa-sign-out-alt"></i> Se deconnecter
@@ -68,7 +68,7 @@
                         </li>
 
                         <!--  -->
-                        <div class="user-connect">
+                        <div class="user-connect-u">
                             <li>
                                 <i class="fas fa-user-circle"></i>
                                 <?php 
@@ -83,9 +83,8 @@
                         </div>
 
                         <li class="nav-item " >  
-                               <?php 
-                                    echo "Phoenix @copyright 2024";
-                                ?>
+                        <p>&copy; Phoenix 2024 | Tous droits réservés</p>
+
                         </li>
 
                     </ul>
@@ -101,9 +100,9 @@
 
                 <div class="d-flex justify-content-between align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 class="h2">Liste des Plats</h1>
-                    <form action="../Ajouter/ajouterPlats.php" method="post">
+                    <!-- <form action="../Ajouter/ajouterPlats.php" method="post">
                         <input type="submit" class="btn btn-orange" id="openModalBtn" value="Ajouter">
-                    </form>                
+                    </form>                 -->
                 </div>
                 <style>
                     
@@ -143,13 +142,6 @@
           }
           else{
             echo "<div class='alert alert-danger'>".'Aucun Plats'."</div>";
-            ?>
-
-                            <form action="./Contact.php" method="post" class="contact-form">
-                                <input type="submit" class="btn btn-orange my-20" value="Ajouter">
-                            </form>
-
-                            <?php
           
           }
           ?>

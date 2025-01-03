@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/accueil.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Nanum+Myeongjo&display=swap"
+        rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <title>La Cafétéria du CHCL | Accueil</title>
 </head>
@@ -20,7 +21,10 @@
                     <i class="fa-solid fa-mug-hot"></i>
                     <a href="./accueil.php">La Cafétéria du CHCL</a>
                 </h1>
-                <li><a class="btn" href="./connection.php">Connexion</a></li>
+                <div class="lien">
+                    <li><a class="btn" href="./connection.php">Login</a></li>
+                    <li><a class="btn" href="./users/Ajouter/AutoAddUsers.php">Sign Up</a></li>
+                </div>
             </ul>
         </nav>
     </section>
@@ -33,7 +37,8 @@
                     Découvrez <span class="change-color">nos saveurs</span> au cœur de votre quotidien
                 </h2>
                 <p class="text1">
-                    Plongez dans une expérience culinaire unique où chaque plat est préparé avec soin et passion. Savourez des recettes authentiques, créées pour ravir vos papilles.
+                    Plongez dans une expérience culinaire unique où chaque plat est préparé avec soin et passion.
+                    Savourez des recettes authentiques, créées pour ravir vos papilles.
                 </p>
             </div>
         </div>
@@ -99,7 +104,9 @@
             <div class="text">
                 <h2>Une équipe de <span class="change-color">chefs passionnés</span> à votre service</h2>
                 <p>
-                    Avec plus de 10 ans d'expertise, notre équipe se dédie à vous offrir des plats de qualité supérieure, alliant tradition et modernité. Venez partager un moment de bonheur autour de nos créations culinaires.
+                    Avec plus de 10 ans d'expertise, notre équipe se dédie à vous offrir des plats de qualité
+                    supérieure, alliant tradition et modernité. Venez partager un moment de bonheur autour de nos
+                    créations culinaires.
                 </p>
             </div>
         </section>

@@ -300,32 +300,70 @@ a {
     margin-bottom: 0px;
   }
 
-/* user, sidebar and icon */
+/*  super, sidebar and icon */
+  .user-connect-s{
+    margin: 40% 0 50px 8px;
+  }
+  .user-connect-s li{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-size: 15px;
+    
+  }
+  
+  .user-connect-s i{
+    font-size: 25px;
+    color: #f1934f;
+    margin-right: 8px;
+  }
+/* admin , sidebar and icon */
   .user-connect{
-    margin: 100px 0 50px 8px;
+    margin: 70% 0 50px 8px;
   }
   .user-connect li{
     display: flex;
     align-items: center;
     text-align: center;
     font-size: 15px;
-
+    
   }
-
+  
   .user-connect i{
     font-size: 25px;
     color: #f1934f;
     margin-right: 8px;
   }
 
+  /* user */
+  .user-connect-u{
+    margin: 85% 0 50px 8px;
+  }
+  
+  .user-connect-u li{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-size: 15px;
+    
+  }
+  
+  .user-connect-u i{
+    font-size: 25px;
+    color: #f1934f;
+    margin-right: 8px;
+  }
+
+  /* end user connect */
+
   .btn-small {
-    padding: 4px 8px;       /* Réduit les marges internes */
-    font-size: 0.85rem;     /* Réduit la taille du texte */
-    line-height: 1.2;       /* Ajuste la hauteur de ligne */
-    border-radius: 4px;     /* Coins légèrement arrondis */
-    display: inline-flex;   /* Pour centrer les icônes et le texte */
-    align-items: center;    /* Aligne le contenu verticalement */
-    gap: 4px;               /* Espacement entre icône et texte */
+    padding: 4px 8px;       
+    font-size: 0.85rem;     
+    line-height: 1.2;       
+    border-radius: 4px;     
+    display: inline-flex;   
+    align-items: center;    
+    gap: 4px;               
 }
 
 .btn-small i {

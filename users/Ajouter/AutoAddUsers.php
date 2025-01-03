@@ -1,9 +1,5 @@
 <?php 
   session_start();
-  if (!isset($_SESSION['prenom_user']) || !isset($_SESSION['nom_user'])) {
-    header("Location: ../../connection.php");
-    exit;
-}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -14,7 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="../../css/style.css" />
     <link rel="stylesheet" media="only screen and (max-width:500px)" href="../../css/style.mobile.css" />
-    <title>CAFETERIA | ADD USERS</title>
+    <title>CAFETERIA | CREATE USER</title>
     <script src="https://kit.fontawesome.com/b7f94dbfeb.js" crossorigin="anonymous"></script>
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"> -->
 </head>
@@ -24,19 +20,19 @@
         <nav>
             <h1>
                 <i class="fa-solid fa-mug-hot"></i>
-                <a href="../index.php">Bonjour, <?php echo $_SESSION['prenom_user']." ".$_SESSION['nom_user'] ?></a>
+                <a href="#">Bonjour et Bienvenue </a>
             </h1>
             <ul>
-                <li><a href="../Lister/ListerUsers.php">Lister Users</a></li>
-                <li><a href="../../Includes/logout.php">Se deconnecter</a></li>
+                <li><a href="../../connection.php">connection</a></li>
+                <li><a href="../../accueil.php">Accueil</a></li>
             </ul>
         </nav>
     </section>
     <br><br>
-    <h1 style="text-align: center;">Ajouter un Utilisateur</h1>
+    <h1 style="text-align: center;">CREER UN COMPTE</h1>
 
     <div class="form-container">
-        <form action="../Traitement/TraitementAjouterUsers.php" method="post" class="contact-form ">
+        <form action="../Traitement/TraitementAutoAddUsers.php" method="post" class="contact-form ">
             <!-- Champ caché pour le code utilisateur généré automatiquement -->
             <input type="hidden" name="code_user" value="<?php echo htmlspecialchars(('User-'.rand(0001,9000) )); ?>" />
 

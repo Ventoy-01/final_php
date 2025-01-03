@@ -56,11 +56,11 @@
                                 <i class="fas fa-shopping-cart"></i> Ventes
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a class="nav-link" href="./Lister/ListerUsers.php">
                                 <i class="fas fa-user-tie"></i> Utilisateurs
                             </a>
-                        </li>
+                        </li> -->
                         <li class="nav-item">
                             <a class="nav-link" href="../Includes/logout.php">
                                 <i class="fas fa-sign-out-alt"></i> Se deconnecter
@@ -68,7 +68,7 @@
                         </li>
 
                         <!--  -->
-                        <div class="user-connect">
+                        <div class="user-connect-u">
                             <li>
                                 <i class="fas fa-user-circle"></i>
                                 <?php 
@@ -322,7 +322,7 @@
             </main>
 
             <footer class="fouter">
-                <h5>Phoenix @copyright 2024</h5>
+            <p>&copy; Phoenix 2024 | Tous droits réservés</p>
             </footer>
         </div>
     </div>

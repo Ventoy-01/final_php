@@ -25,7 +25,10 @@
             <i class="fa-solid fa-mug-hot"></i>
             <a href="./index.html">CAFETERIA DU CHCL</a>
           </h1>
-            <li><a class="btn" href="./accueil.php">Les Plats</a></li>
+          <div class="lien">
+            <li><a class="btn" href="./accueil.php">Accueil</a></li>
+            <li><a class="btn" href="./users/Ajouter/AutoAddUsers.php">Sign Up</a></li>
+          </div>
         </ul>
       </nav>
     </section>
@@ -60,7 +63,7 @@
 
     <!-- Footer -->
     <footer class="pied">
-        <p>Phoenix @copyright 2024</p>
+      <p>&copy; Phoenix 2024 | Tous droits réservés</p>
     </footer>
   </body>
 </html>

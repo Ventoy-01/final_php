@@ -56,11 +56,11 @@
                                 <i class="fas fa-shopping-cart"></i> Ventes
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a class="nav-link" href="./ListerUsers.php">
                                 <i class="fas fa-user-tie"></i> Utilisateurs
                             </a>
-                        </li>
+                        </li> -->
                         <li class="nav-item">
                             <a class="nav-link" href="../../Includes/logout.php">
                                 <i class="fas fa-sign-out-alt"></i> Se deconnecter
@@ -68,7 +68,7 @@
                         </li>
 
                         <!--  -->
-                        <div class="user-connect">
+                        <div class="user-connect-u">
                             <li>
                                 <i class="fas fa-user-circle"></i>
                                 <?php 
@@ -79,13 +79,12 @@
                                 <?php 
                                 echo "Droit : ".$_SESSION['role'];
                                 ?>
-                            </li> 
+                            </li>
                         </div>
 
-                        <li class="nav-item " >  
-                               <?php 
-                                    echo "Phoenix @copyright 2024";
-                                ?>
+                        <li class="nav-item ">
+                            <p>&copy; Phoenix 2024 | Tous droits réservés</p>
+
                         </li>
 
                     </ul>
@@ -114,7 +113,7 @@
                     <h1 class="h2">Liste des Ventes</h1>
                     <form action="../Ajouter/ajouterVentes.php" method="post">
                         <input type="submit" class="btn btn-orange" id="openModalBtn" value="Ajouter">
-                    </form>                
+                    </form>
                 </div>
                 <style>
                 .tableau {
@@ -140,7 +139,7 @@
           if ($query->rowCount()>=1) {
             ?>
                 <div class="table-responsive">
-                <table class="table table-bordered">
+                    <table class="table table-bordered">
                         <tr>
                             <th>Code Vente</th>
                             <th>Code Client</th>

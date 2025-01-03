@@ -15,7 +15,6 @@ if (isset($_POST['pseudo_user'], $_POST['password_user'])) {
         
 
         if ($userInfo) {
-            // Vérification du mot de passe haché
                 // Initialisation de la session utilisateur
                 $_SESSION['code_user'] = $userInfo['code_user'];
                 $_SESSION['role'] = $userInfo['role_user'];

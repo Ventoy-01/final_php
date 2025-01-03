@@ -48,7 +48,7 @@
                         </li>
                         <li class="nav-item"><a class="nav-link" href="../../Includes/logout.php"><i class="fas fa-sign-out-alt"></i> Se déconnecter</a></li>
                         <!--  -->
-                        <div class="user-connect">
+                        <div class="user-connect-s">
                             <li>
                                 <i class="fas fa-user-circle"></i>
                                 <?php 
@@ -63,9 +63,8 @@
                         </div>
 
                         <li class="nav-item " >  
-                               <?php 
-                                    echo "Phoenix @copyright 2024";
-                                ?>
+                        <p>&copy; Phoenix 2024 | Tous droits réservés</p>
+
                         </li>
                     </ul>
                 </div>

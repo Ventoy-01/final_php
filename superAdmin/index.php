@@ -74,7 +74,7 @@
                         </li>
 
                         <!--  -->
-                        <div class="user-connect">
+                        <div class="user-connect-s">
                             <li>
                                 <i class="fas fa-user-circle"></i>
                                 <?php 
@@ -327,7 +327,7 @@
             </main>
 
             <footer class="fouter">
-                <h5>Phoenix @copyright 2024</h5>
+            <p>&copy; Phoenix 2024 | Tous droits réservés</p>
             </footer>
         </div>
     </div>
