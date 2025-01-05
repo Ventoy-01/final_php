@@ -107,7 +107,7 @@
                     <div class="col-md-3">
                         <div class="card text-white bg-prime mb-3">
                             <div class="card-body">
-                                <h5 class="card-title">Vos Ventes aujourd.</h5>
+                                <h5 class="card-title">Vos Ventes Auj.</h5>
                                 <p class="card-text"><?php echo $ventes; ?></p>
                             </div>
                         </div>
@@ -138,7 +138,7 @@
                         <div class="card text-white bg-da mb-3">
                             <div class="card-body">
                                 <h5 class="card-title">Total Users</h5>
-                                <p class="card-text"><?php echo $users; ?></p>
+                                <p class="card-text"><?php echo "Not Allowed"; ?></p>
                             </div>
                         </div>
                     </div>

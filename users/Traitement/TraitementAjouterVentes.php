@@ -63,7 +63,7 @@ $query->execute([
 
 // Si une vente existe déjà pour ce client aujourd'hui, afficher un message d'erreur et rediriger
 if ($query ->rowCount() > 0) {
-    setErrorAndRedirect("Le client a déjà effectué une vente aujourd'hui.", "../Lister/ListerVentes.php");
+    setErrorAndRedirect("Le client a déjà effectué un achat aujourd'hui.", "../Lister/ListerVentes.php");
     exit();
 }
 

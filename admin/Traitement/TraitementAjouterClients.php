@@ -16,15 +16,27 @@
         $phone = trim($_POST['telephone']);
     }
 
-    function validerNumeroHaitienStatique($numero) {
-        $regex = '/^[2345][0-9]{7}$/';
-        return preg_match($regex, $numero) === 1;
-    }
-    if (!validerNumeroHaitienStatique($phone_client)) {
-        echo '<script>alert("numéro Haiti invalide");</script>';
-        echo '<script>setTimeout(function() { window.location.href = "../Ajouter/ajouterClients.php"; }, 500);</script>';
-        exit();
-    } else {
+   // Fonction pour valider un numéro de téléphone haïtien (statique)
+function validerNumeroHaitienStatique($numero) {
+    // Le regex vérifie que le numéro commence par 2, 3, 4 ou 5 suivi de 7 chiffres
+    $regex = '/^[2345][0-9]{7}$/';
+    return preg_match($regex, $numero) === 1;
+}
+
+// Vérification du numéro de téléphone client
+if (!validerNumeroHaitienStatique($phone)) {
+    // Alerte indiquant que le numéro est invalide
+    echo '<script>alert("Numéro de téléphone haïtien invalide. Veuillez réessayer.");</script>';
+    
+    // Redirection vers le formulaire après un délai de 500 ms
+    echo '<script>
+            setTimeout(function() { 
+                window.location.href = "../Ajouter/ajouterClients.php"; 
+            }, 500);
+          </script>';
+    exit();
+}
+ else {
         $phone_client= "+509 ".$phone;
     }
    

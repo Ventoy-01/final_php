@@ -80,7 +80,7 @@
                           <?php echo ($value->type_client == 'inviter') ? 'checked' : ''; ?> required/> <br/>
 
                     <label for="phone_client">Telephone : (sans +509)</label>
-                    <input type="text" placeholder="Votre telephone commence par (2 , 3, 4, 5)" name="phone_client" id="phone_client" value="<?php echo $value-> phone_client?>" required/>
+                    <input type="text" placeholder="Votre telephone commence par (2 , 3, 4, 5)" name="phone_client" id="phone_client" value="<?php echo substr($value->phone_client, 5,8); ?>" required/>
 
                    <input type="submit" class="btn btn-orange my-20" value="Modifier">
                 </form>

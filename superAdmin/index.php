@@ -63,7 +63,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./changeSuperPassword.php">
+                            <a class="nav-link" href="./changeSuperPassword.php?">
                             <i class="fa-solid fa-key"></i> Change Password
                             </a>
                         </li>

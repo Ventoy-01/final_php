@@ -65,7 +65,7 @@ $query->execute([
 $result = $query->fetchColumn();
 if ($result> 0) {
     // Une vente existe déjà pour ce client aujourd'hui
-    setErrorAndRedirect("Le client a déjà effectué une vente aujourd'hui.", "../Lister/ListerVentes.php");
+    setErrorAndRedirect("Le client a déjà effectué un achat aujourd'hui.", "../Lister/ListerVentes.php");
 }
 
 // Insérer les données dans la table ventes

@@ -17,8 +17,8 @@
         $codeid = trim($_POST['codeid']);
     }
     
-    if (!empty(isset($_POST['codeid']))) {
-        $id = trim($_POST['id']);
+    if (!empty(isset($_GET['id']))) {
+        $id = trim($_GET['id']);
     }
 
 
@@ -28,7 +28,7 @@
     }
     if (!validerNumeroHaitienStatique($phone)) {
         echo '<script>alert("numéro Haiti invalide");</script>';
-        echo '<script>setTimeout(function() {window.location.href = "../Modifier/ModifierUsers.php?codeid=' . $id . '";}, 500);</script>';
+        echo '<script>setTimeout(function() {window.location.href = "../Modifier/ModifierClients.php?codeid=' . $id . '";}, 500);</script>';
         exit();
     } 
     else {
